@@ -7,10 +7,25 @@ from flask import Flask, render_template
 
 
 
-
+# Set up browser
 def init_browser():
     executable_path = {"executable_path": 'C:\ChromeDriver\chromedriver.exe'}
     return Browser("chrome", executable_path, headless=False)
+
+
+
+# Master scrape function to move everything to Mongo
+def scrape():
+
+    master_scrape_dict = {}
+
+    master_scrape_dict["mars news"] = mars_news()
+    master_scrape_dict["jpl image"] = jpl_image()
+    master_scrape_dict["mars facts"] = mars_facts()
+    master_scrape_dict["mars hemi"] = mars_hemi()
+
+    return master_scrape_dict
+
 
 
 # Mars News - for more detail see jupyter notebook
@@ -90,6 +105,5 @@ def mars_hemi():
         hemi_list.append({"title": title, "img_url": img_url})
 
     return hemi_list
-
 
 
