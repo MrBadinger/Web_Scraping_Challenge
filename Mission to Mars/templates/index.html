@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mars</title>
+    <link rel="stylesheet" type="text/css" href="Web_Visualizations/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Mars News Articles -->
+    <div class="row" id="craiglist-listings">
+      <div class="col-md-12">
+          <h3>Latest Mars News</h3>
+            <h4 class="heading">{{mars_db.mars_news.news_title}}</h4>
+            <small>{{mars_db.mars_news.news_p}}</small>
+      </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+
+    <!-- JPL Image -->
+    <div class="row">
+      <div class="col-md-8">
+          <h3 style="text-align: center;">Featured Mars Image</h3>
+          <img src="{{mars_db.jpl_image}}" style="max-width:100%; max-height: auto;" alt="Featured Mars Image">
+      </div>
+
+    <!-- Mars Facts -->
+      <div class="col-md-4">
+        <h3 style="text-align: center;">Mars Facts</h3>                        
+            {{ mars_db.mars_facts  | safe}}
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+
+    <!-- Mars Hemi -->
+    <h3 style="text-align: center;"> Mars Hemispheres</h3>  
+
+    <hr>
+    <div class="row">       
+        {% for hemi in mars_db.mars_hemi %} 
+          <div class="col-md-6">
+            <div class="card" style="padding: 10px;">
+                <img src="{{ hemi.img_url }}" style="max-width:100%; max-height:auto; text-align: center;"  />   
+                <div class="card-body">                   
+                    <h4><strong>{{ hemi.title }}</strong></h4>  
+                </div>                    
+            </div>
+          </div>
+        {% endfor %}
+    </div> 
+
+
+
+
+
+
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

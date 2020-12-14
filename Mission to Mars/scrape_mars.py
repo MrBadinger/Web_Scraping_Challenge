@@ -6,7 +6,6 @@ from splinter import Browser
 from flask import Flask, render_template
 
 
-
 # Set up browser
 def init_browser():
     executable_path = {"executable_path": 'C:\ChromeDriver\chromedriver.exe'}
@@ -19,12 +18,14 @@ def scrape():
 
     master_scrape_dict = {}
 
-    master_scrape_dict["mars news"] = mars_news()
-    master_scrape_dict["jpl image"] = jpl_image()
-    master_scrape_dict["mars facts"] = mars_facts()
-    master_scrape_dict["mars hemi"] = mars_hemi()
+    master_scrape_dict["mars_news"] = mars_news()
+    master_scrape_dict["jpl_image"] = jpl_image()
+    master_scrape_dict["mars_facts"] = mars_facts()
+    master_scrape_dict["mars_hemi"] = mars_hemi()
 
     return master_scrape_dict
+
+
 
 
 
