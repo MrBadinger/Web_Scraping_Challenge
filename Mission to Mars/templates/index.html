@@ -7,6 +7,7 @@
     <title>Mars</title>
     <link rel="stylesheet" type="text/css" href="Web_Visualizations/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css.css">
 </head>
 
 <body>
@@ -37,17 +38,19 @@
           <h3 style="text-align: center;">Featured Mars Image</h3>
           <img src="{{mars_db.jpl_image}}" style="max-width:100%; max-height: auto;" alt="Featured Mars Image">
       </div>
+    
 
-    <!-- Mars Facts -->
+      <!-- Mars Facts -->    
       <div class="col-md-4">
         <h3 style="text-align: center;">Mars Facts</h3>  
         <div style="text-align: center;">                    
-            {{ mars_db.mars_facts  | safe}} 
+            {{ mars_db.mars_facts  | safe}}    <!-- the ' | safe ' tells the browser to render the code as code and not as a txt string -->
         </div>
+      </div>
     </div>
 
+    
     <br>
-    <hr>
     <br>
 
 
@@ -55,6 +58,8 @@
     <h3 style="text-align: center;"> Mars Hemispheres</h3>  
 
     <hr>
+    <br>
+
     <div class="row">       
         {% for hemi in mars_db.mars_hemi %} 
           <div class="col-md-6">

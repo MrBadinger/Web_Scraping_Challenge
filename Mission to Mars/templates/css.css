@@ -1,0 +1,6 @@
+.horizontal_line {
+    border:solid 1px black;
+    width: 96%;
+    color: #FFFF00;
+    height: 1px;
+}
